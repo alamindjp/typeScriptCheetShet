@@ -43,6 +43,7 @@ let arr: number[] = [1, 2, 3];
 let tuple: [string, number] = ['foo', 42];
 let obj: { name: string, age: number } = { name: 'John', age: 30 };
 </code></pre>
+<br/>
 
 ### 2) Type Annotations:
 
@@ -55,6 +56,8 @@ function greet(name: string): string { // function with type annotations for par
   return "Hello, " + name;
 }
 </code></pre>
+
+<br/>
 
 ### 3) Static Typing:
 
@@ -69,6 +72,8 @@ function add(a: number, b: number): number {
   return a + b;
 }
 </code></pre>
+
+<br/>
 
 ### 4) Interfaces:
 
@@ -89,6 +94,8 @@ let person: Person = {
   age: 30,
 };
 </code></pre>
+
+<br/>
 
 ### 5) Classes:
 
@@ -122,6 +129,8 @@ let dog = new Dog('Rex');
 dog.speak();
 </code></pre>
 
+<br/>
+
 ### 6) Enums: 
 * Enums are a way to define a set of named constants. They make your code more readable by giving names to values that would otherwise be hard to understand.
 
@@ -136,4 +145,39 @@ enum Color {
 let c: Color = Color.Green;
 console.log(c); 
 // Output: 1
+</code></pre>
+
+<br/>
+
+### 7) Generics: 
+* Generics allow you to write reusable code that works with a variety of types. They allow you to create functions, classes, and interfaces that can work with any type, rather than being tied to a specific type.
+
+### Example:
+<pre><code>
+function identity<T>(arg: T): T { // generic function
+  return arg;
+}
+const num: number = identity(5); // T is inferred as number
+const str: string = identity("hello"); // T is inferred as string
+</code></pre>
+
+<br/>
+
+### 8) Union and Intersection Types: 
+* Union types allow you to specify that a variable can have one of several possible types. This can be useful when you’re working with data that could be of more than one type.
+
+### Example:
+
+<pre><code>
+type NumberOrString = number | string; // union type
+
+function printNumberOrString(value: NumberOrString): void {
+  console.log(value);
+}
+type PersonWithAddress = Person & { address: string }; // intersection type
+const personWithAddress: PersonWithAddress = {
+  name: "Bob",
+  age: 25,
+  address: "123 Main St"
+};
 </code></pre>
