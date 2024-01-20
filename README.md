@@ -92,8 +92,9 @@ let person: Person = {
 
 ### 5) Classes:
 
-- Classes in TypeScript are similar to classes in other object-oriented programming languages like Java and C#. They allow you to define properties and methods for a particular type of object, and they support inheritance and encapsulation. TypeScript supports object-oriented programming features like classes and inheritance.
+* Classes in TypeScript are similar to classes in other object-oriented programming languages like Java and C#. They allow you to define properties and methods for a particular type of object, and they support inheritance and encapsulation. TypeScript supports object-oriented programming features like classes and inheritance.
 
+### Example:
 <pre><code>
 class Animal {
   name: string;
@@ -119,4 +120,20 @@ class Dog extends Animal {
 
 let dog = new Dog('Rex');
 dog.speak();
+</code></pre>
+
+### 6) Enums: 
+* Enums are a way to define a set of named constants. They make your code more readable by giving names to values that would otherwise be hard to understand.
+
+### Example:
+<pre><code>
+enum Color {
+  Red,
+  Green,
+  Blue,
+}
+
+let c: Color = Color.Green;
+console.log(c); 
+// Output: 1
 </code></pre>
