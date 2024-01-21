@@ -184,7 +184,7 @@ const personWithAddress: PersonWithAddress = {
 
 <br/>
 
-### Optional Chaining:
+### 9) Optional Chaining:
 * Optional chaining allows you to access nested properties safely, similar to JavaScript. It permits you to handle null or undefined values, preventing errors. It is useful when working with data that may be incomplete, helping to guard against runtime errors.
 
 ### Example:
@@ -200,4 +200,17 @@ let person: Person = {
 };
 
 console.log(person.lastName?.toUpperCase()); // Output: undefined
+</code></pre>
+
+<br />
+
+### 10) Type Assertion:
+
+* In TypeScript, there is a special type known as 'any.' You can use it when you want to handle type-checking errors for a particular value. It is advisable to use it when you are unsure about the type of your data, as it can help you avoid errors.
+
+### Example:
+
+<pre><code>
+const someValue: any = "hello";
+const strLength: number = (someValue as string).length;
 </code></pre>
