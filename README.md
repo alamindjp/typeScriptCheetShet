@@ -4,7 +4,7 @@
 
 <p>TypeScript is JavaScript with added syntax for types. TypeScript is a statically typed superset of JavaScript developed by Microsoft, designed to improve the development experience of large-scale JavaScript applications. It adds optional static typing, interfaces, classes, decorators, and modules to JavaScript, allowing developers to write more robust and maintainable code. TypeScript compiles to plain JavaScript and is widely used in popular JavaScript frameworks and libraries, providing improved tooling and type checking for JavaScript development.</p>
 
-## > Key features of TypeScript:
+## => Key features of TypeScript:
 
 - Static Typing:
   TypeScript introduces static typing through a system of types. This allows developers to catch errors related to variable types at compile-time rather than runtime.
@@ -180,4 +180,24 @@ const personWithAddress: PersonWithAddress = {
   age: 25,
   address: "123 Main St"
 };
+</code></pre>
+
+<br/>
+
+### Optional Chaining:
+* Optional chaining allows you to access nested properties safely, similar to JavaScript. It permits you to handle null or undefined values, preventing errors. It is useful when working with data that may be incomplete, helping to guard against runtime errors.
+
+### Example:
+
+<pre><code>
+interface Person {
+  firstName: string;
+  lastName?: string;
+}
+
+let person: Person = {
+  firstName: 'John',
+};
+
+console.log(person.lastName?.toUpperCase()); // Output: undefined
 </code></pre>
