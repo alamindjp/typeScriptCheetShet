@@ -394,3 +394,26 @@ export default ErrorBoundary;
 </code></pre>
 
 <br />
+
+# Troubleshooting
+
+### Operators
+
+* <code>typeof</code> and <code>instanceof</code>: Used for refinement of type query. [More here.](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html)
+
+* <code>keyof</code>: To get the <code>keys of</code> an object, <code>keyof T</code> is an operator that informs you which values of <code>k</code> can be used for <code>obj[k]</code>.  [More here.](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
+
+* <code>[K in O]</code>: It is used to check for mapped types.
+
+* <code>+</code> or <code>-</code> or <code>?</code> : Addition and subtraction and readonly and optional modifiers.  [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+
+* <code>readonly</code> : The properties of the constructed type are not reassignable, meaning those properties cannot be reassigned. [More here.](https://medium.com/totally-typescript/how-to-use-readonly-in-typescript-a902574d9e18)
+
+* <code>x ? Y : Z</code> : It is used to conditional types for generic types, type aliases, function parameter types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+* <code>!</code> : Non-null assertion for nullable types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+
+* <code>=</code> : Generic type parameter default for generic types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+
+* <code>as</code> : type assertion. [More here.](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+
+* <code>is</code> : type guard for function return types. [More here.](https://www.spguides.com/is-keyword-in-typescript/)
