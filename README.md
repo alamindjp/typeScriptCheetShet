@@ -214,3 +214,183 @@ console.log(person.lastName?.toUpperCase()); // Output: undefined
 const someValue: any = "hello";
 const strLength: number = (someValue as string).length;
 </code></pre>
+
+<br />
+
+### 11) Empty interface:
+
+* An empty interface is not commonly used in TypeScript. Any non-null value can be assigned to an empty {}. Creating an empty interface is often an indication of a programmer error, leading to mistakes in filling it correctly.
+
+### Example:
+
+<pre><code>
+const someValue: any = "hello";
+const strLength: number = (someValue as string).length;
+</code></pre>
+
+<br />
+<br />
+
+# Function Components:
+
+* This is simple function like jsx. But that function take a props argument and return a JSX element.
+### Example:
+
+<pre><code>
+// Declaring type of props "Function Component Props"
+
+type AppProps = {
+  message: string;
+};  // use interface
+
+// Easiest way to declare a Function Component; return type is inferred.
+
+const App = ({ message }: AppProps) => <span><</> div>{message}<span><</> /div>;
+
+// you can choose annotate the return type so an error is raised if you accidentally return some other type
+
+const App = ({ message }: AppProps): React.JSX.Element => <span><</> div>{message}<span><</> /div>;
+
+// you can also inline the type declaration; eliminates naming the prop types, but looks repetitive
+
+const App = ({ message }: { message: string }) => <span><</span>div>{message}<span><</span>/div>;
+
+</code></pre>
+
+<br />
+
+# Class Components:
+
+* Within TypeScript, class Component is a generic type (That's means React.Component<PropType, StateType>), so you want to provide it with (optional) prop and state type parameters.
+### Example:
+
+<pre><code>
+// Declaring type of props "Class Component Props"
+
+type MyProps = {
+
+  message: string;
+};  // use interface
+
+type MyState = {
+  count: number; // like this
+};
+class App extends React.Component<MyProps, MyState> {
+  state: MyState = {
+    count: 0, // optional second annotation for better type inference
+  };
+  render() {
+    return (
+      <span></span>div>
+        {this.props.message} {this.state.count}
+      <span></span>/div>
+    );
+  }
+}
+
+</code></pre>
+
+<br />
+
+ ### 1) Class Methods:
+ * Do it like normal, but remember that any arguments for your functions need to be declared with these arguments typed.
+
+### Example:
+
+<pre><code>
+class App extends React.Component<{ message: string }, { count: number }> {
+  state = { count: 0 };
+  render() {
+    return (
+      <span><</span>div onClick={() => this.increment(1)}>
+        {this.props.message} {this.state.count}
+      <span><</span>/div>
+    );
+  }
+  increment = (amt: number) => {
+    // like this
+    this.setState((state) => ({
+      count: state.count + amt,
+    }));
+  };
+}
+</code></pre>
+
+<br />
+
+
+### Class Properties: 
+* If you need to declare class properties for later use, just declare it like state, but without assignment:
+
+### Example:
+
+<pre><code>
+class App extends React.Component<{
+  message: string;
+}> {
+  pointer: number; // like this
+  componentDidMount() {
+    this.pointer = 3;
+  }
+  render() {
+    return (
+      <span><</span>div>
+        {this.props.message} and {this.pointer}
+      <span><</span>/div>
+    );
+  }
+}
+</code></pre>
+
+<br />
+
+# Error Boundaries:
+* <code>NPM</code> provide an <code>error-boundary-react</code> package with <code>TypeScript</code>, that captures and logs errors wherever they occur in the child component tree. Additionally, a fallback UI can be displayed through this error.
+
+<br/>
+
+
+
+* <strong> If we want, we can create a custom error boundary component.</strong>
+
+### Example:
+
+<pre><code>
+import React, { Component, ErrorInfo, ReactNode } from "react";
+
+interface Props {
+  children?: ReactNode;
+}
+
+interface State {
+  hasError: boolean;
+}
+
+class ErrorBoundary extends Component<Props, State> {
+  public state: State = {
+    hasError: false
+  };
+
+  public static getDerivedStateFromError(_: Error): State {
+    
+    return { hasError: true };   // Update state so the next render will show the fallback UI.
+  }
+
+  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error("Uncaught error:", error, errorInfo);
+  }
+
+  public render() {
+    if (this.state.hasError) {
+      return <span><</span>h1>Sorry.. there was an error<span><</span>/h1>;
+    }
+
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
+
+</code></pre>
+
+<br />
