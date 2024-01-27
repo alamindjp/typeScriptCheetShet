@@ -4,7 +4,7 @@
 
 <p>TypeScript is JavaScript with added syntax for types. TypeScript is a statically typed superset of JavaScript developed by Microsoft, designed to improve the development experience of large-scale JavaScript applications. It adds optional static typing, interfaces, classes, decorators, and modules to JavaScript, allowing developers to write more robust and maintainable code. TypeScript compiles to plain JavaScript and is widely used in popular JavaScript frameworks and libraries, providing improved tooling and type checking for JavaScript development.</p>
 
-## => Key features of TypeScript:
+## Key features of TypeScript:
 
 - Static Typing:
   TypeScript introduces static typing through a system of types. This allows developers to catch errors related to variable types at compile-time rather than runtime.
@@ -35,14 +35,14 @@
 
 ### Example:
 
-<pre><code>
+```javascript
 let num: number = 42;
 let str: string = 'Hello';
 let bool: boolean = true;
 let arr: number[] = [1, 2, 3];
 let tuple: [string, number] = ['foo', 42];
 let obj: { name: string, age: number } = { name: 'John', age: 30 };
-</code></pre>
+```
 <br/>
 
 ### 2) Type Annotations:
@@ -51,11 +51,11 @@ let obj: { name: string, age: number } = { name: 'John', age: 30 };
 
 ### Example:
 
-<pre><code>
+```javascript
 function greet(name: string): string { // function with type annotations for parameters and return value
   return "Hello, " + name;
 }
-</code></pre>
+```
 
 <br/>
 
@@ -65,13 +65,13 @@ function greet(name: string): string { // function with type annotations for par
 
 ### Example:
 
-<pre><code>
+```javascript
 let firstName: string = 'John';
 let age: number = 30;
 function add(a: number, b: number): number {
   return a + b;
 }
-</code></pre>
+```
 
 <br/>
 
@@ -81,7 +81,7 @@ function add(a: number, b: number): number {
 
 ### Example:
 
-<pre><code>
+```javascript
 interface Person {
   firstName: string;
   lastName: string;
@@ -93,7 +93,7 @@ let person: Person = {
   lastName: 'Doe',
   age: 30,
 };
-</code></pre>
+```
 
 <br/>
 
@@ -102,7 +102,7 @@ let person: Person = {
 * Classes in TypeScript are similar to classes in other object-oriented programming languages like Java and C#. They allow you to define properties and methods for a particular type of object, and they support inheritance and encapsulation. TypeScript supports object-oriented programming features like classes and inheritance.
 
 ### Example:
-<pre><code>
+```javascript
 class Animal {
   name: string;
 
@@ -127,7 +127,7 @@ class Dog extends Animal {
 
 let dog = new Dog('Rex');
 dog.speak();
-</code></pre>
+```
 
 <br/>
 
@@ -135,7 +135,7 @@ dog.speak();
 * Enums are a way to define a set of named constants. They make your code more readable by giving names to values that would otherwise be hard to understand.
 
 ### Example:
-<pre><code>
+```javascript
 enum Color {
   Red,
   Green,
@@ -145,7 +145,7 @@ enum Color {
 let c: Color = Color.Green;
 console.log(c); 
 // Output: 1
-</code></pre>
+```
 
 <br/>
 
@@ -153,13 +153,13 @@ console.log(c);
 * Generics allow you to write reusable code that works with a variety of types. They allow you to create functions, classes, and interfaces that can work with any type, rather than being tied to a specific type.
 
 ### Example:
-<pre><code>
+```javascript
 function identity<T>(arg: T): T { // generic function
   return arg;
 }
 const num: number = identity(5); // T is inferred as number
 const str: string = identity("hello"); // T is inferred as string
-</code></pre>
+```
 
 <br/>
 
@@ -168,7 +168,7 @@ const str: string = identity("hello"); // T is inferred as string
 
 ### Example:
 
-<pre><code>
+```javascript
 type NumberOrString = number | string; // union type
 
 function printNumberOrString(value: NumberOrString): void {
@@ -180,7 +180,7 @@ const personWithAddress: PersonWithAddress = {
   age: 25,
   address: "123 Main St"
 };
-</code></pre>
+```
 
 <br/>
 
@@ -189,7 +189,7 @@ const personWithAddress: PersonWithAddress = {
 
 ### Example:
 
-<pre><code>
+```javascript
 interface Person {
   firstName: string;
   lastName?: string;
@@ -200,7 +200,7 @@ let person: Person = {
 };
 
 console.log(person.lastName?.toUpperCase()); // Output: undefined
-</code></pre>
+```
 
 <br />
 
@@ -210,10 +210,10 @@ console.log(person.lastName?.toUpperCase()); // Output: undefined
 
 ### Example:
 
-<pre><code>
+```javascript
 const someValue: any = "hello";
 const strLength: number = (someValue as string).length;
-</code></pre>
+```
 
 <br />
 
@@ -223,10 +223,10 @@ const strLength: number = (someValue as string).length;
 
 ### Example:
 
-<pre><code>
+```javascript
 const someValue: any = "hello";
 const strLength: number = (someValue as string).length;
-</code></pre>
+```
 
 <br />
 <br />
@@ -236,7 +236,7 @@ const strLength: number = (someValue as string).length;
 * This is simple function like jsx. But that function take a props argument and return a JSX element.
 ### Example:
 
-<pre><code>
+```javascript
 // Declaring type of props "Function Component Props"
 
 type AppProps = {
@@ -245,17 +245,17 @@ type AppProps = {
 
 // Easiest way to declare a Function Component; return type is inferred.
 
-const App = ({ message }: AppProps) => <span><</> div>{message}<span><</> /div>;
+const App = ({ message }: AppProps) => <div>{message}</div>;
 
 // you can choose annotate the return type so an error is raised if you accidentally return some other type
 
-const App = ({ message }: AppProps): React.JSX.Element => <span><</> div>{message}<span><</> /div>;
+const App = ({ message }: AppProps): React.JSX.Element => <div>{message}</div>;
 
 // you can also inline the type declaration; eliminates naming the prop types, but looks repetitive
 
-const App = ({ message }: { message: string }) => <span><</span>div>{message}<span><</span>/div>;
+const App = ({ message }: { message: string }) => <div>{message}</div>;
 
-</code></pre>
+```
 
 <br />
 
@@ -264,7 +264,7 @@ const App = ({ message }: { message: string }) => <span><</span>div>{message}<sp
 * Within TypeScript, class Component is a generic type (That's means React.Component<PropType, StateType>), so you want to provide it with (optional) prop and state type parameters.
 ### Example:
 
-<pre><code>
+```javascript
 // Declaring type of props "Class Component Props"
 
 type MyProps = {
@@ -281,14 +281,14 @@ class App extends React.Component<MyProps, MyState> {
   };
   render() {
     return (
-      <span></span>div>
+      <div>
         {this.props.message} {this.state.count}
-      <span></span>/div>
+      </div>
     );
   }
 }
 
-</code></pre>
+```
 
 <br />
 
@@ -297,14 +297,14 @@ class App extends React.Component<MyProps, MyState> {
 
 ### Example:
 
-<pre><code>
+```javascript
 class App extends React.Component<{ message: string }, { count: number }> {
   state = { count: 0 };
   render() {
     return (
-      <span><</span>div onClick={() => this.increment(1)}>
+      <div onClick={() => this.increment(1)}>
         {this.props.message} {this.state.count}
-      <span><</span>/div>
+      </div>
     );
   }
   increment = (amt: number) => {
@@ -314,7 +314,7 @@ class App extends React.Component<{ message: string }, { count: number }> {
     }));
   };
 }
-</code></pre>
+```
 
 <br />
 
@@ -324,7 +324,7 @@ class App extends React.Component<{ message: string }, { count: number }> {
 
 ### Example:
 
-<pre><code>
+```javascript
 class App extends React.Component<{
   message: string;
 }> {
@@ -334,18 +334,18 @@ class App extends React.Component<{
   }
   render() {
     return (
-      <span><</span>div>
+      <div>
         {this.props.message} and {this.pointer}
-      <span><</span>/div>
+      </div>
     );
   }
 }
-</code></pre>
+```
 
 <br />
 
 # Error Boundaries:
-* <code>NPM</code> provide an <code>error-boundary-react</code> package with <code>TypeScript</code>, that captures and logs errors wherever they occur in the child component tree. Additionally, a fallback UI can be displayed through this error.
+* ```NPM``` provide an ```error-boundary-react``` package with ```TypeScript```, that captures and logs errors wherever they occur in the child component tree. Additionally, a fallback UI can be displayed through this error.
 
 <br/>
 
@@ -355,7 +355,7 @@ class App extends React.Component<{
 
 ### Example:
 
-<pre><code>
+```javascript
 import React, { Component, ErrorInfo, ReactNode } from "react";
 
 interface Props {
@@ -382,7 +382,7 @@ class ErrorBoundary extends Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return <span><</span>h1>Sorry.. there was an error<span><</span>/h1>;
+      return <h1>Sorry.. there was an error</h1>;
     }
 
     return this.props.children;
@@ -391,7 +391,7 @@ class ErrorBoundary extends Component<Props, State> {
 
 export default ErrorBoundary;
 
-</code></pre>
+```
 
 <br />
 
@@ -399,21 +399,21 @@ export default ErrorBoundary;
 
 ### Operators
 
-* <code>typeof</code> and <code>instanceof</code>: Used for refinement of type query. [More here.](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html)
+* ````typeof```` and ```instanceof```: Used for refinement of type query. [More here.](https://www.typescriptlang.org/docs/handbook/2/typeof-types.html)
 
-* <code>keyof</code>: To get the <code>keys of</code> an object, <code>keyof T</code> is an operator that informs you which values of <code>k</code> can be used for <code>obj[k]</code>.  [More here.](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
+* ```keyof```: To get the ```keys of``` an object, ```keyof T``` is an operator that informs you which values of ```k``` can be used for ```obj[k]```.  [More here.](https://www.typescriptlang.org/docs/handbook/2/keyof-types.html)
 
-* <code>[K in O]</code>: It is used to check for mapped types.
+* ```[K in O]```: It is used to check for mapped types.
 
-* <code>+</code> or <code>-</code> or <code>?</code> : Addition and subtraction and readonly and optional modifiers.  [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+* ```+``` or ```-``` or ```?``` : Addition and subtraction and readonly and optional modifiers.  [More here.](https://www.geeksforgeeks.org/typescript-operators/)
 
-* <code>readonly</code> : The properties of the constructed type are not reassignable, meaning those properties cannot be reassigned. [More here.](https://medium.com/totally-typescript/how-to-use-readonly-in-typescript-a902574d9e18)
+* ```readonly``` : The properties of the constructed type are not reassignable, meaning those properties cannot be reassigned. [More here.](https://medium.com/totally-typescript/how-to-use-readonly-in-typescript-a902574d9e18)
 
-* <code>x ? Y : Z</code> : It is used to conditional types for generic types, type aliases, function parameter types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
-* <code>!</code> : Non-null assertion for nullable types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+* ```x ? Y : Z``` : It is used to conditional types for generic types, type aliases, function parameter types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+* ```!``` : Non-null assertion for nullable types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
 
-* <code>=</code> : Generic type parameter default for generic types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
+* ```=``` : Generic type parameter default for generic types. [More here.](https://www.geeksforgeeks.org/typescript-operators/)
 
-* <code>as</code> : type assertion. [More here.](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+* ```as``` : type assertion. [More here.](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
-* <code>is</code> : type guard for function return types. [More here.](https://www.spguides.com/is-keyword-in-typescript/)
+* ```is``` : type guard for function return types. [More here.](https://www.spguides.com/is-keyword-in-typescript/)
